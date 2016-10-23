@@ -22,11 +22,8 @@ public class MailDAOImpl implements MailDAO
 	
 	public void send(User user,String subject,String body) throws MessagingException 
 	{
-		//javaMailSender =new JavaMailSenderImpl();
-		System.out.println("Inside mail");
 		MimeMessage mail=javaMailSender.createMimeMessage();
 		MimeMessageHelper helper=new MimeMessageHelper(mail,true);
-		System.out.println("sending");
 		helper.setTo(user.getMail());
 		helper.setReplyTo(REPLY_TO_ADDRESS);
 		helper.setFrom(FROM_ADDRESS);

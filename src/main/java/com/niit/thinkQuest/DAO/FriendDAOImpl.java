@@ -27,9 +27,7 @@ public class FriendDAOImpl implements FriendDAO {
 	public List<UserFriend> viewAllFriends() {
 		Session s=sf.getCurrentSession();
 		Transaction t=s.beginTransaction();
-		System.out.println("poornima......");
 		Criteria c=sf.getCurrentSession().createCriteria(UserFriend.class);
-		System.out.println("view friendzzzzzzzzz");
 		List<UserFriend> f=(List<UserFriend>)c.list();
 		t.commit();
 		return f;
@@ -37,19 +35,14 @@ public class FriendDAOImpl implements FriendDAO {
 	
     @Transactional(propagation=Propagation.SUPPORTS)
 	public void addFriend(User user, Integer frndId) {
-    	System.out.println("add friend DAO");
 		Session s=sf.getCurrentSession();
     	Transaction t=s.beginTransaction();
-    	
-    	System.out.println("Transaction started");
     	System.out.println(user.getName());
     	UserFriend userFriends=new UserFriend();
     	userFriends.setStatus("Requested");
     	Friend friend=new Friend();
-    	System.out.println("frdzzzz");
     	friend.setUser(user);
     	friend.setFrndId(frndId);
-    	System.out.println("friend.......");
     	userFriends.setFriend(friend);
 		s.save(userFriends);
 		t.commit();
@@ -72,23 +65,18 @@ public class FriendDAOImpl implements FriendDAO {
 	public List<UserFriend> viewAllRequest(int frndId) {
     	Session s=sf.getCurrentSession();
 		Transaction t=s.beginTransaction();
-		System.out.println("view all friends");
 		Criteria c=sf.getCurrentSession().createCriteria(UserFriend.class);
-		System.out.println("friendssssss");
 		c.add(Restrictions.eq("status","Requested"));
-		System.out.println("zzzzzzzzzz");
 		List<UserFriend> f=(List<UserFriend>)c.list();
-		System.out.println("pooriiiiiiii");
 		t.commit();
 		return f;
 	}
     
-  //chat purpose
+    //chat purpose
   	@Transactional(propagation=Propagation.SUPPORTS)
   	public User retriveFriend(int frndId) {
   		Session s=sf.getCurrentSession();
   		Transaction t=s.beginTransaction();
-  		System.out.println("friend retrived");
   		Criteria c=sf.getCurrentSession().createCriteria(User.class);
   		c.add(Restrictions.eq("userid", frndId));
   		User u=(User)c.uniqueResult();

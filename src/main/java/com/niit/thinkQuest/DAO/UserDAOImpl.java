@@ -24,19 +24,15 @@ public class UserDAOImpl implements UserDAO {
 	
 	 User user;
 
-	
 	@Transactional(propagation=Propagation.SUPPORTS)
 	public void signUp(User user)
 	{
 		Session s=sf.getCurrentSession();
 		Transaction t=s.beginTransaction();
-		System.out.println("new user");
 		user.setDate(new Date());
 		s.saveOrUpdate(user);
 		UserRole r=new UserRole();
-		System.out.println("userid");
 		r.setUser_role_id(user.getUserid());
-		System.out.println("roleuserid");
 		r.setAuthority("ROLE_USER");
 		s.saveOrUpdate(r);
 		t.commit();
@@ -48,10 +44,8 @@ public class UserDAOImpl implements UserDAO {
 		Session s=sf.getCurrentSession();
 		Transaction t=s.beginTransaction();
 		Criteria c=s.createCriteria(User.class);
-		System.out.println("user verify");
 		c.add(Restrictions.eq("mail",u.getMail()));
 		c.add(Restrictions.eq("pwd",u.getPwd()));
-		System.out.println("name pwd");
 		user=(User) c.uniqueResult();
 		System.out.println(user.getName());
 		t.commit();

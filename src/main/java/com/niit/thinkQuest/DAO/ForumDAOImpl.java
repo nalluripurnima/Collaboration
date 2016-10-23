@@ -26,9 +26,7 @@ public class ForumDAOImpl implements ForumDAO
 	{
 		Session s=sf.getCurrentSession();
 		Transaction t=s.beginTransaction();
-		System.out.println("forum add question");
 		s.saveOrUpdate(question);
-		System.out.println("forum added");
 		t.commit();
 	}
 
@@ -37,7 +35,6 @@ public class ForumDAOImpl implements ForumDAO
 	{
 		Session s=sf.getCurrentSession();
 		Transaction t=s.beginTransaction();
-		System.out.println("forum list");
 		Criteria c=sf.getCurrentSession().createCriteria(Forum.class);
 		List<Forum> l1=(List<Forum>)c.list();
 		t.commit();
@@ -49,7 +46,6 @@ public class ForumDAOImpl implements ForumDAO
 	{
 		Session s=sf.getCurrentSession();
 		Transaction t=s.beginTransaction();
-		System.out.println("delete forum");
 		Forum f1=(Forum)s.load(Forum.class, id);
 		s.delete(f1);
 		t.commit();
@@ -64,7 +60,6 @@ public class ForumDAOImpl implements ForumDAO
 	{
 		Session s=sf.getCurrentSession();
 		Transaction t=s.beginTransaction();
-		System.out.println("get forum");
 		Object o=s.get(Forum.class,new Integer(id));
 		Forum q=(Forum)o;
 		return q;

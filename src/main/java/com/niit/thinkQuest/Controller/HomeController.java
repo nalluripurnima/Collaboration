@@ -1,34 +1,22 @@
 package com.niit.thinkQuest.Controller;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
-
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.niit.thinkQuest.Service.IBolgService;
-import com.niit.thinkQuest.Service.ICommentService;
 import com.niit.thinkQuest.Service.IEventService;
-import com.niit.thinkQuest.Service.IForumService;
 import com.niit.thinkQuest.Service.IFriendService;
 import com.niit.thinkQuest.Service.IUserService;
-import com.niit.thinkQuest.model.Blog;
-import com.niit.thinkQuest.model.Comment;
-import com.niit.thinkQuest.model.Event;
-import com.niit.thinkQuest.model.Forum;
 import com.niit.thinkQuest.model.Friend;
 import com.niit.thinkQuest.model.User;
 import com.niit.thinkQuest.model.UserFriend;
@@ -37,7 +25,6 @@ import com.niit.thinkQuest.model.UserFriend;
 public class HomeController {
 	
 	private static final int userId = 0;
-
 
 	@Autowired
 	IUserService iUserService;
@@ -49,13 +36,6 @@ public class HomeController {
 	IFriendService iFriendService;
 	
     		
-	/*@RequestMapping(value=  { "/" , "home"})
-	public ModelAndView login() {
-		System.out.println("home");
-		return new ModelAndView("home");
-	}
-	*/
-		
 	@RequestMapping(value = { "/","login" })
 	public ModelAndView Login() {
 		System.out.println("Login");

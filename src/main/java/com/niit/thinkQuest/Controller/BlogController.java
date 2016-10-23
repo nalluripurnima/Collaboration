@@ -21,7 +21,8 @@ public class BlogController
 {
 	@Autowired
 	IBolgService iBlogService;
-	
+
+	//For Adding Blog
 	@RequestMapping(value = { "blog" })
 	public ModelAndView Blog(HttpServletRequest request,@ModelAttribute("thinkQuest")Blog b,BindingResult result) 
 	{
@@ -31,6 +32,7 @@ public class BlogController
 		return mv;
 	}
 	
+	//To Display the blog and search for blog
 	@RequestMapping(value=  { "viewblog"})
 	public ModelAndView viewblog() {
 		String jsonData="";

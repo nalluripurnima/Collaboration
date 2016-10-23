@@ -21,12 +21,12 @@ public class BlogDAOImpl implements BolgDAO
 	@Autowired 
 	private SessionFactory sf;
 	
+	
 	@Transactional(propagation=Propagation.SUPPORTS)
 	public void addBlog(Blog blog)
 	{
 		Session s=sf.getCurrentSession();
 		Transaction t=s.beginTransaction();
-		System.out.println("add blog");
 		blog.setDate(new Date());
 		s.saveOrUpdate(blog);
 		t.commit();
@@ -38,9 +38,7 @@ public class BlogDAOImpl implements BolgDAO
 	{
 		Session s=sf.getCurrentSession();
 		Transaction t=s.beginTransaction();
-		System.out.println("view my blog");
 		Criteria c=sf.getCurrentSession().createCriteria(Blog.class);
-		System.out.println("creating my blog");
 		List<Blog> l1=(List<Blog>)c.list();
 		t.commit();
 		return l1;
@@ -51,7 +49,6 @@ public class BlogDAOImpl implements BolgDAO
 	{
 		Session s=sf.getCurrentSession();
 		Transaction t=s.beginTransaction();
-		System.out.println("delete my blog here");
 		Blog b1=(Blog)s.load(Blog.class, id);
 		s.delete(b1);
 		t.commit();
@@ -66,7 +63,6 @@ public class BlogDAOImpl implements BolgDAO
 	{
 		Session s=sf.getCurrentSession();
 		Transaction t=s.beginTransaction();
-		System.out.println("update my blog");
 		s.update(blog);
 		t.commit();
 	}

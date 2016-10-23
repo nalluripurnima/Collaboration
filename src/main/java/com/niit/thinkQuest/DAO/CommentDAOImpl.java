@@ -12,7 +12,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.niit.thinkQuest.model.Blog;
 import com.niit.thinkQuest.model.Comment;
 
 @Repository("CommentDAO")
@@ -28,13 +27,11 @@ public class CommentDAOImpl implements CommentDAO
 	{
 		Session s=sf.getCurrentSession();
 		Transaction t=s.beginTransaction();
-		System.out.println("add comment");
 		comment.setDate(new Date());
 		s.saveOrUpdate(comment);
 		t.commit();
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Transactional(propagation=Propagation.SUPPORTS)
 	public List<Comment> viewComment() 
 	{

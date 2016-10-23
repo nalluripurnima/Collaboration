@@ -25,7 +25,6 @@ public class EventDAOImpl implements EventDAO
 	{
 		Session s=sf.getCurrentSession();
 		Transaction t=s.beginTransaction();
-		System.out.println("add event");
 		event.setDate(new Date());
 		event.setCreationdate(new Date());
 		s.saveOrUpdate(event);
@@ -37,7 +36,6 @@ public class EventDAOImpl implements EventDAO
 	{
 		Session s=sf.getCurrentSession();
 		Transaction t=s.beginTransaction();
-		System.out.println("delete event");
 		Event e1=(Event)s.load(Event.class, id);
 		s.delete(e1);
 		t.commit();

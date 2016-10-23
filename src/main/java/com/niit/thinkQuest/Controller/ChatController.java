@@ -38,53 +38,46 @@ public class ChatController {
 	@Autowired
 	IFriendService iFriendService;
 	
+	//this is add chat method
+	@RequestMapping(value=  { "startChart"})
+	public ModelAndView startChart(HttpServletRequest request) {
+		System.out.println("start chat");
+		String frdid=request.getParameter("frdid");
+		Chat chat=new Chat();
+		chat.setFromUser(String.valueOf(iUserService.get().getUserid()));
+		ModelAndView mv=new ModelAndView("viewChatUsers","command",chat);
+		mv.addObject("user",iUserService.get());
+		//System.out.print(iChatService.viewChat(chat.getFromUser(),chat.getToUser()));
+		mv.addObject("msgs",iChatService.viewChat(chat.getFromUser(),chat.getToUser()));
+		mv.addObject("chatusers", iUserService.viewUsers());
+		friend=iFriendService.retriveFriend(Integer.parseInt(frdid));
+		mv.addObject("friend",friend);
+		return  mv; 
+	}
 	
+	//this is for store chat
+	@RequestMapping(value = "storechat", method=RequestMethod.POST)
+	public String storeChat(HttpServletRequest request,@Valid @ModelAttribute("thinkQuest") Chat c,BindingResult result) 
+	{
+		System.out.println("storing chat here "+c.getFromUser());
+		c.setToUser(String.valueOf(friend.getUserid()));
+		c.setFromUser(String.valueOf(iUserService.get().getUserid()));
+		iChatService.addChat(c);
+		return "redirect:/viewChatUsers";
+		
+	}
 	
+	//this is for view chat
 	@RequestMapping(value=  { "viewChatUsers"})
 	public ModelAndView viewchat(HttpServletRequest request,@Valid @ModelAttribute("thinkQuest") Chat c,BindingResult result) 
 	{
 		System.out.println("view chat");
 		ModelAndView mv=new ModelAndView("viewChatUsers","command",new Chat());
 		mv.addObject("chatusers", iUserService.viewUsers());
-		//mv.addObject(iChatService.viewChat(c.getFromUser(),c.getToUser()));
-		/*mv.addObject("friendRequests",iFriendService.viewAllRequest(iUserService.getUser().getUserid()));*/
 		return  mv; 
 	}
 	
-	@RequestMapping(value=  { "startChart"})
-	public ModelAndView startChart(HttpServletRequest request) {
-		System.out.println("start chat");
-		String frdid=request.getParameter("frdid");
-		System.out.println("hg");
-		Chat chat=new Chat();
-		chat.setFromUser(String.valueOf(iUserService.get().getUserid()));
-		ModelAndView mv=new ModelAndView("viewChatUsers","command",chat);
-		mv.addObject("user",iUserService.get());
-		System.out.println("hgsdc");
-		System.out.print(iChatService.viewChat(chat.getFromUser(),chat.getToUser()));
-		mv.addObject("msgs",iChatService.viewChat(chat.getFromUser(),chat.getToUser()));
-		System.out.println("hgsdc");
-		mv.addObject("chatusers", iUserService.viewUsers());
-		System.out.println("hcvh");
-		friend=iFriendService.retriveFriend(Integer.parseInt(frdid));
-		mv.addObject("friend",friend);
-		return  mv; 
-	}
-	
-	@RequestMapping(value = "storechat", method=RequestMethod.POST)
-	public String storeChat(HttpServletRequest request,@Valid @ModelAttribute("thinkQuest") Chat c,BindingResult result) 
-	{
-		System.out.println("storing chat here "+c.getFromUser());
-		c.setToUser(String.valueOf(friend.getUserid()));
-		System.out.println("hii chat here");
-		c.setFromUser(String.valueOf(iUserService.get().getUserid()));
-		System.out.println("helllloooo");
-		iChatService.addChat(c);
-		System.out.println("chating....!");
-		 //mv.addObject("", iChatService.addChat(c));
-		return "redirect:/viewChatUsers";
-		
-	}
+	//this mehtod is used to search the chat
 	public String toJson(List data){
 		String jsonData="";
 		ObjectMapper mapper=new ObjectMapper();

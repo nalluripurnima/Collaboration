@@ -21,17 +21,14 @@ import com.niit.thinkQuest.model.User;
 @Controller
 public class UserController 
 {
-	
 	User user=null;
 	 
 	@Autowired
 	IUserService iUserService;
 	
-	
 	@Autowired
 	IMailService iMailService;
 
-	
 	@RequestMapping(value = "store", method=RequestMethod.POST)
 	public ModelAndView register(HttpServletRequest request,@Valid @ModelAttribute("thinkQuest") User u,BindingResult result) throws MessagingException 
 	{

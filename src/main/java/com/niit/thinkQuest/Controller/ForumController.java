@@ -40,7 +40,6 @@ public class ForumController {
 		iForumService.addQuestion(f);
 		ModelAndView mv=new ModelAndView("store1");
 		if(result.hasErrors()){
-
 			mv=new ModelAndView("forum", "command", new Forum());
 					mv.addObject("errors", result.getAllErrors());
 					for(ObjectError s:result.getAllErrors()){
@@ -53,6 +52,7 @@ public class ForumController {
 		}
 		return mv;
 	}
+	
 	@RequestMapping(value=  {"viewforum"})
 	public ModelAndView Viewforum() {
 		System.out.println("viewforum");

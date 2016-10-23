@@ -26,7 +26,6 @@ public class ChatDAOImpl implements ChatDAO {
 	{
 		Session s=sf.getCurrentSession();
 		Transaction t=s.beginTransaction();
-		System.out.println("add chat "+chat.getFromUser());
 		chat.setDate(new Date());
 		System.out.println("store");
 		s.saveOrUpdate(chat);
@@ -42,7 +41,6 @@ public class ChatDAOImpl implements ChatDAO {
 		List<Chat> msgs=(List<Chat>)c.list();
 		c.add(Restrictions.eq("fromUser", fromUser));
 		c.add(Restrictions.eq("toUser", toUser));
-		System.out.print("Qewwerrt"+c.list());
 		t.commit();
 		return msgs;
 		
