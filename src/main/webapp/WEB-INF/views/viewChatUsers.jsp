@@ -82,10 +82,13 @@
     </div> -->
       <form:form action="storechat" method="post">
 		
+    <c:forEach var="m" items="${msgs}">
+    <!-- <a href="#">Hello</a> -->
+    </c:forEach>
     
         <div class="message_input_wrapper">
        
-            <form:input type="text" path="message" placeholder="Type your message here..."  value=" ${friend.name} ${msgs}"/>
+            <form:input type="text" path="message" placeholder="Type your message here..." />
           
            <form:input type="hidden" path="fromUser" value="${user.getUserid()}" placeholder="Type your message here..." />
       

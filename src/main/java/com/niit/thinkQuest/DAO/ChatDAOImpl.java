@@ -40,9 +40,9 @@ public class ChatDAOImpl implements ChatDAO {
 		Transaction t=s.beginTransaction();
 		Criteria c=sf.getCurrentSession().createCriteria(Chat.class);
 		List<Chat> msgs=(List<Chat>)c.list();
-		c.add(Restrictions.eq("fromUser", msgs));
-		c.add(Restrictions.eq("toUser", msgs));
-		System.out.print(c.list());
+		c.add(Restrictions.eq("fromUser", fromUser));
+		c.add(Restrictions.eq("toUser", toUser));
+		System.out.print("Qewwerrt"+c.list());
 		t.commit();
 		return msgs;
 		

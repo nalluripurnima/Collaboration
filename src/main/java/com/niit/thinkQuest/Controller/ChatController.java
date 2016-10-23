@@ -46,9 +46,7 @@ public class ChatController {
 		System.out.println("view chat");
 		ModelAndView mv=new ModelAndView("viewChatUsers","command",new Chat());
 		mv.addObject("chatusers", iUserService.viewUsers());
-		System.out.println("hiiiiiiiiiii");
 		//mv.addObject(iChatService.viewChat(c.getFromUser(),c.getToUser()));
-		System.out.println("view frinds chating....");
 		/*mv.addObject("friendRequests",iFriendService.viewAllRequest(iUserService.getUser().getUserid()));*/
 		return  mv; 
 	}
@@ -62,13 +60,14 @@ public class ChatController {
 		chat.setFromUser(String.valueOf(iUserService.get().getUserid()));
 		ModelAndView mv=new ModelAndView("viewChatUsers","command",chat);
 		mv.addObject("user",iUserService.get());
+		System.out.println("hgsdc");
+		System.out.print(iChatService.viewChat(chat.getFromUser(),chat.getToUser()));
 		mv.addObject("msgs",iChatService.viewChat(chat.getFromUser(),chat.getToUser()));
 		System.out.println("hgsdc");
 		mv.addObject("chatusers", iUserService.viewUsers());
 		System.out.println("hcvh");
 		friend=iFriendService.retriveFriend(Integer.parseInt(frdid));
 		mv.addObject("friend",friend);
-		
 		return  mv; 
 	}
 	
