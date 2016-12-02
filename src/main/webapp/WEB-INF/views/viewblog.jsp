@@ -51,8 +51,6 @@
 <script>
 angular.module('myApp',[]).controller('dataCtrl',function($scope)
 		{
-	
-	
 		$scope.names=${blogs};
 		$scope.orderByMe=function(x)
 		{

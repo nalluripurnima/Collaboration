@@ -16,15 +16,15 @@ public class Chat
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer chatid;
 	
-	@NotNull
+	
 	@Size(min = 1, max = 50, message="message")
 	private String message;
 	
 	@NotNull
-	private String fromUser;
+	private Integer fromUser;
 	
 	@NotNull
-	private String toUser;
+	private Integer toUser;
 	
 	@NotNull
 	private Date date;
@@ -41,24 +41,24 @@ public class Chat
 		return message;
 	}
 
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	public String getFromUser() {
+	public Integer getFromUser() {
 		return fromUser;
 	}
 
-	public void setFromUser(String fromUser) {
+	public void setFromUser(Integer fromUser) {
 		this.fromUser = fromUser;
 	}
 
-	public String getToUser() {
+	public Integer getToUser() {
 		return toUser;
 	}
 
-	public void setToUser(String toUser) {
+	public void setToUser(Integer toUser) {
 		this.toUser = toUser;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 	public Date getDate() {
@@ -70,4 +70,4 @@ public class Chat
 	}
 
 	
-	}
+}

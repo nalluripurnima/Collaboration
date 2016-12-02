@@ -4,23 +4,21 @@ import java.io.Serializable;
 
 import javax.persistence.Embeddable;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 @Embeddable
 public class Friend  implements Serializable{
     
 	
-	private Integer frndId;
+	private static final long serialVersionUID = 1L;
+
+	@ManyToOne
+	@NotNull
+	private User user;  
 	
 	@ManyToOne
-	private User user;
-
-	public Integer getFrndId() {
-		return frndId;
-	}
-
-	public void setFrndId(Integer frndId) {
-		this.frndId = frndId;
-	}
+	@NotNull
+	private User userFriend;
 
 	public User getUser() {
 		return user;
@@ -29,6 +27,15 @@ public class Friend  implements Serializable{
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+	public User getUserFriend() {
+		return userFriend;
+	}
+
+	public void setUserFriend(User userFriend) {
+		this.userFriend = userFriend;
+	}
+
 
 	
 }

@@ -52,45 +52,72 @@
 
 </style>
 <body ng-app="myApp">
+<div class="container bootstrap snippet">
 <div class="jumbotron list-content">
+
 <div ng-controller="dataCtrl">
-<table class="table table-striped">
-    <tr>
-    <th>Id</th>
-    <th>Name</th>
-    <th>Mail</th>
-     <th>phone number</th>
-   
-    </tr>
+ <div class="header">
+    <h3 class="text-muted prj-name">
+        <span class="fa fa-users fa-2x principal-title"></span>
+        Friend zone
+    </h3>
+  </div>
+  
+ 
+<table>
+<td class="col-sm-8 col-md-6">
+ <div class="media">
+  <a class=class="list-group-item text-left" href="#"> <img class="img-thumbnail" src="<c:url value="/resources/redfrock;
+  .jpg"/>" style="width: 72px; height: 72px;"> </a>
+    <c:forEach var="f" items="${friends}">
+  	<label class="name">
+        <c:if test="${f.friend.userFriend.userid==user.userid}">
+         ${f.friend.user.name}<br>
+         </c:if>
+        </label>
+  </c:forEach>
+  </div>
+  </td>
+ 
+  
         <tr ng-repeat="resource in names | filter:search">
-            <td>{{resource.uid}}</td>
-            <td>{{ resource.username}}</td>
-            <td>{{ resource.mail}}</td>
-            <td>{{ resource.mobile}}</td>
-            <td> <a href="addasfriend?u={{resource.uid}}" class="button" role="button">sendrequest</a>                        <!-- <td><img src="resources/images/{{resource.bid}}.jpg" style="width: 200px;height:150px"></td>
+          
+                        <td class="col-sm-8 col-md-6">
+                        <div class="media">
+                            <a class=class="list-group-item text-left" href="#"> <img class="img-thumbnail" src="<c:url value="/resources/redfrock.jpg"/>" style="width: 72px; height: 72px;"> </a>
+                            <label class="name">
+          {{resource.name}} <br>
+        </label></div>
+        </td>
+        
+        
+                            <div class="media-body">
+                                <h4 class="media-heading"><a href="#">{{resource.name}}</a></h4>
+            <!-- <td>{{ resource.mail}}</td>
+            <td>{{ resource.mobile}}</td> -->
+            <td> <a href="addasfriend?u={{resource.userid}}" class="button" role="button">sendrequest</a>                        <!-- <td><img src="resources/images/{{resource.bid}}.jpg" style="width: 200px;height:150px"></td>
             <td><a href="deleteProduct?id={{resource.product_id}}">Delete</a></td> -->
+           </td>
+        </tr> 
            
-        </tr>    
     </table>
 </div>
-<div>
+
+ <div>
     <table class="table table-striped">
     <tr>
-    <th>Id</th>
-    
-    <th>Mail</th>
-     <th>Status</th>
+    <th>name</th>
     </tr>
 		<c:forEach var="frd" items= "${friendRequests}">
         <tr>
-            <td>${frd.getReqid()}</td>
-            <td>${frd.getFriend().user.firstname}</td>
-            <td>${frd.getStatus()}</td>
-             <td> <a href="acceptfriend?f=${frd.getReqid()}" class="button" role="button">accept</a>
             
+            <td>${frd.getFriend().user.name}</td>
+           
+          <td> <a href="acceptfriend?f=${frd.getReqId()}" class="button" role="button">accept</a>       
          </tr> 
-        </c:forEach>   
+         </c:forEach>    
     </table> 
+    </div>
     </div>
     
 </div>
@@ -106,6 +133,7 @@ angular.module('myApp',[]).controller('dataCtrl',function($scope)
 		});
 
 </script>
+
 
 
 </body>

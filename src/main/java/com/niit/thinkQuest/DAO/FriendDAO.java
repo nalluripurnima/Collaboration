@@ -8,11 +8,14 @@ import com.niit.thinkQuest.model.UserFriend;
 
 public interface FriendDAO {
 	
-	public void addFriend(User Uid,Integer frndId);
-	public void updateFriend(int reqId);
-	public List<UserFriend> viewAllFriends();
-	   public List<UserFriend>viewAllRequest(int frndId);
-	   public User retriveFriend(int frdid);
+	public void addFriend(User Uid,Integer fndid);
+	public void updateFriend(int fndid);
+	public List<UserFriend> viewAllFriends(User u);
+	public List <UserFriend> viewAllRequest(int fndid);
+	public User retriveFriend(int fndid);
+
+
+
 
 
 

@@ -28,7 +28,7 @@ public class BlogController
 	{
 		iBlogService.addBlog(b);
 		System.out.println("Blog");
-		ModelAndView mv=new ModelAndView("viewblog","command",new Blog());
+		ModelAndView mv=new ModelAndView("blog","command",new Blog());
 		return mv;
 	}
 	

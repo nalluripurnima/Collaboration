@@ -72,25 +72,41 @@
 			<div><span> Chat Here...!</span></div>
 		</div>
 	<div class='chatWindow'>
-	<!-- <div class="top_menu">
-        <div class="buttons">
-            <div class="button close"></div>
-            <div class="button minimize"></div>
-            <div class="button maximize"></div>
-        </div>
-	<div class="title">Chat</div>
-    </div> -->
+	
       <form:form action="storechat" method="post">
 		
     <c:forEach var="m" items="${msgs}">
-    <!-- <a href="#">Hello</a> -->
+   <p> ${chat.userid.name}</p>
+   
+    <p>${m.getMessage()}</p> 
+    <%-- ${m.getMessage()} ${m.getFromUser()} ${m.getToUser()}  --%>
+    <c:if test="${m.fromUser=chat.userid}">
+      
+      <div class="msgs">
+      
+        <p>${m.getMessage()}</p>
+       
+      </div>
+    
+    </c:if>
+    <c:if test="${m.toUser==chat.userid}">
+   
+      <div class="msgs">
+      
+        <p>${m.getMessage()}</p>
+       
+      </div>
+    
+    </c:if>
     </c:forEach>
     
         <div class="message_input_wrapper">
-       
-            <form:input type="text" path="message" placeholder="Type your message here..." />
+        
+              
+        
+               <form:textarea type="text" path="message" placeholder="Type your message here..." />
           
-           <form:input type="hidden" path="fromUser" value="${user.getUserid()}" placeholder="Type your message here..." />
+           <form:input type="hidden" path="fromUser"  placeholder="Type your message here..." />
       
            <button type="submit"class="btn btn-info">Send</button>
       

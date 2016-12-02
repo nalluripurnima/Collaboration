@@ -67,7 +67,8 @@
 			<li><a href="comment">Comment</a></li>
 			<li><a href="event">Event</a></li>
 			<li><a href="forum">Forum</a></li>
-			<li><a href="addasfriend">Add Friend</a></li>
+			<li><a href="viewChatUsers">Chat</a></li>
+			<li><a href="viewFriend">viewFriend</a></li>
 			<!-- <li><div id="custom-search-input">
 					<div class="input-group col-md-12">
 						<input type="text" class="form-control input-sm"  style="top:10px;"

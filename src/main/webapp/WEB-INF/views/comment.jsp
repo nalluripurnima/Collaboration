@@ -15,84 +15,29 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <title>Comment</title>
 <style type="text/css">
-
-
-hr{
-	width: 100%;
-	color: #fff;
-}
-.wrapper {    
-	margin-top: 80px;
-	margin-bottom: 20px;
-}
-
-.form-signin {
-  max-width: 420px;
-  padding: 30px 38px 66px;
-  margin: 0 auto;
-  background-color: #eee;
-  border: 3px dotted rgba(0,0,0,0.1);  
-  }
-
-.form-signin-heading {
-  text-align:center;
-  margin-bottom: 30px;
-}
-
-.form-control {
-  position: relative;
-  font-size: 16px;
-  height: auto;
-  padding: 10px;
-}
-
-input[type="text"] {
-  margin-bottom: 0px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-input[type="password"] {
-  margin-bottom: 20px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-
-.colorgraph {
-  height: 7px;
-  border-top: 0;
-  background: #c4e17f;
-  border-radius: 5px;
-  background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-  background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-  background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-  background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  .input-group{
+	width:50%;
+	padding : 5px 5px 5px 5px;
 }
 </style>
 </head>
 <body>
 <form:form action="store5" method="post">
-<div class = "container">
-	<div class="wrapper">
-		<form  name="Login_Form" class="form-signin">     
-		    <h3 class="form-signin-heading">Add Comment  Here......!</h3>
-      
-	               		<hr class="colorgraph"><br>
-	               	 
+<div class = "input-group">             	 
 	 <%-- 
 	 <c:forEach var="e" items="${errors}">
 		<li>${e.getDefaultMessage()}" </li>
 	</c:forEach> --%>
 	<div class="input-group margin-bottom-20">
-			<span class="input-group-addon"><i class="glyphicon glyphicon-envelope mycolor "></i></span>
+			<span class="input-group-addon"><i class="glyphicon glyphicon-star "></i></span>
 			<form:input path='cname' id="name" class="form-control"	placeholder="Enter name" required="true" title="valid name is required"/>
 			</div>
 	 
 		<br>
 		<br>
 		<div class="input-group margin-bottom-20">
-			<span class="input-group-addon"><i class="glyphicon glyphicon-envelope mycolor "></i></span>
-			<form:input path='cdesc' id="Mail" class="form-control"	placeholder="Enter mail id" required="true" title="valid mail is required"/>
+			<span class="input-group-addon"><i class="glyphicon glyphicon-star "></i></span>
+			<form:textarea  path='cdesc' id="Mail" class="form-control"	placeholder="Enter mail id" required="true" title="valid mail is required"/>
 			</div>
 		<br>
 		<br>
@@ -103,11 +48,7 @@ input[type="password"] {
 				<button class="btn btn-info btn-md">add comment</button>
 			</div>
 			</center>
-		</div>
-	
-   
-    </form> 
-   </div>
+		</div>  
    </div>
    </form:form>
 </body>

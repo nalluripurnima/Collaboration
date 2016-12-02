@@ -19,8 +19,8 @@ public class ChatService implements IChatService{
 		 c.addChat(chat);
 	}
 
-	public List<Chat> viewChat(String fromUser,String toUser) {
-		
+	public List<Chat> viewChat(Integer fromUser,Integer toUser) {
+		System.out.println("qwerty"+c.viewChat(fromUser, toUser));
 		return c.viewChat(fromUser, toUser);
 	}
 
