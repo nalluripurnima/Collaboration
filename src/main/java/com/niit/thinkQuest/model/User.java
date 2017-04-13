@@ -7,12 +7,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
+import org.springframework.stereotype.Component;
 
 @Entity
+@Table(name="UserDetails")
+@Component
 public class User
 {
 	@Id
@@ -43,7 +47,7 @@ public class User
 	private Integer role;
 	
 	@Column
-	private Date date;
+	private Date registrationdate;
 	
 	@Column
 	private boolean enabled;
@@ -104,12 +108,12 @@ public class User
 		this.role = role;
 	}
 
-	public Date getDate() {
-		return date;
+	public Date getRegistrationdate() {
+		return registrationdate;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setRegistrationdate(Date registrationdate) {
+		this.registrationdate = registrationdate;
 	}
 
 	public boolean isEnabled() {
@@ -120,4 +124,5 @@ public class User
 		this.enabled = enabled;
 	}
 
+	
 }

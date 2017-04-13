@@ -3,8 +3,13 @@ package com.niit.thinkQuest.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
 
 @Entity
+@Table
+@Component
 public class UserRole {
 	
 	@Id

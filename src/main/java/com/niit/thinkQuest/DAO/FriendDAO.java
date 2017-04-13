@@ -2,7 +2,6 @@ package com.niit.thinkQuest.DAO;
 
 import java.util.List;
 
-import com.niit.thinkQuest.model.Friend;
 import com.niit.thinkQuest.model.User;
 import com.niit.thinkQuest.model.UserFriend;
 

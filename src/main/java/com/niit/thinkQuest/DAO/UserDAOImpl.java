@@ -29,7 +29,7 @@ public class UserDAOImpl implements UserDAO {
 	{
 		Session s=sf.getCurrentSession();
 		Transaction t=s.beginTransaction();
-		user.setDate(new Date());
+		user.setRegistrationdate(new Date());
 		s.saveOrUpdate(user);
 		UserRole r=new UserRole();
 		r.setUser_role_id(user.getUserid());

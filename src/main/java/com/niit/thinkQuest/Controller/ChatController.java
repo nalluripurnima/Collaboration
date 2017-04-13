@@ -1,7 +1,6 @@
 package com.niit.thinkQuest.Controller;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +16,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.thinkQuest.Service.IChatService;
@@ -47,7 +45,6 @@ public class ChatController {
 	public ModelAndView startChat(HttpServletRequest request,HttpServletResponse response){
 		System.out.println("started chatting");
 		trackid=Integer.parseInt(request.getParameter("frdid"));
-		//System.out.println("asdfgh"+friend.getUserid());
 		System.out.println("sdfghj"+trackid);
 		return new ModelAndView("viewChatUsers", "command", new Chat()).addObject("msgs",iChatService.viewChat(iUserService.get().getUserid(),trackid)).addObject("chatusers",iUserService.viewUsers());
 	}
